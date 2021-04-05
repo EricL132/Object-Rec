@@ -10,7 +10,7 @@
 /env
 # production
 /build
-/iReader/modules
+/modules
 # misc
 .DS_Store
 .env.local
