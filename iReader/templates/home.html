@@ -1,8 +1,24 @@
-<html>
+<!DOCTYPE html>
+{% load static %}
     <head>
         <title>Read</title>
+        <link rel="stylesheet" type= "text/css" href="{% static 'styles/home.css' %}" ></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     </head>
     <body>
-        <h1>vxcvcx</h1>
+        <h1>Image Object Recognition</h1>
+       
+        <div id="mid-container">
+           
+            <div id="plus-icon"><i class="fas fa-plus"></i></div>
+            <label >Upload from device</label>
+            <input id="image-input" type="file" accept="image/png, image/jpg ,image/jpeg"></input>
+        </div>
+        <div id="button-tools-container">
+            <button id="uploadAnother" class="bottom-buttons">Upload New Image</button>
+            <button id="downloadPhoto" class="bottom-buttons">Download Image</button>
+        </div>
     </body>
+    <script src="{% static 'javascript/main.js' %}"></script>
+   
 </html>

@@ -24,7 +24,8 @@ SECRET_KEY = '(c!+zc1f4r_jms+v8zfk%2k_a3a4t$mzt*ktwbei^kh(pi$19p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["primeval-creek-308919.an.r.appspot.com","localhost"]
+
 
 
 # Application definition
@@ -72,13 +73,28 @@ WSGI_APPLICATION = 'iReader.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# cloud_sql_proxy -instances=primeval-creek-308919:us-east4:pythonimage=tcp:3306
+if os.getenv('GAE_APPLICATION',None):
+    DATABASES ={
+        'default':{
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST':'/cloudsql/primeval-creek-308919:us-east4:pythonimage',
+            'USER': 'Eric',
+            'PASSWORD': 'Apple123',
+            'NAME': 'images'
+        }
     }
-}
+else:
+    DATABASES = {
+        'default':{
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST':'127.0.0.1',
+            'PORT': '3306',
+            'USER': 'Eric',
+            'PASSWORD': 'Apple123',
+            'NAME': 'images'
+        }
+    }
 
 
 # Password validation
@@ -118,3 +134,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
