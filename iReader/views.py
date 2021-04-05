@@ -6,17 +6,15 @@ import time
 import pathlib
 import os
 import base64
-#from .modules.test.readimage import getNewImage
-
+from .modules.ten.readimage import getNewImage
+from subprocess import Popen
 
 
 def index(response):
     return render(response,"home.html",{})
 
 def sendImage(request):
-    
     if request.method== 'POST':
-        """ 
         filename = str(round(time.time() * 1000))+str(request.FILES['myfile']) # received file name
         file_obj = request.FILES['myfile']
         with default_storage.open('tmp/'+filename, 'wb+') as destination:
@@ -24,9 +22,9 @@ def sendImage(request):
                 destination.write(chunk)
         getNewImage(os.path.join(pathlib.Path(__file__).parent.parent.absolute(),'tmp',filename))
         with open('tmp/'+filename,"rb") as f:
-            return HttpResponse(f.read(),content_type="image/png") """
-        with open('tmp/1617530338800cows.jpg',"rb") as f:
-            return HttpResponse(f.read(),content_type="image/png")
-            
+            filedata =f.read()
+        p = Popen("rm %s" % os.path.join(pathlib.Path(__file__).parent.parent.absolute(),'tmp',filename),shell=True)
+        response = HttpResponse(filedata,content_type="image/png")
+        return response
     else:
         return HttpResponse('Page not found')
