@@ -77,9 +77,7 @@ from http.server import BaseHTTPRequestHandler
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/captureImage':
-            # Insert your code here
             getNewImage()
-
         self.send_response(200)
 
 httpd = socketserver.TCPServer(("", 8080), MyHandler)
