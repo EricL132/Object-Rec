@@ -11,7 +11,7 @@ document.getElementById('image-input').addEventListener('change', async (e) => {
     const file = document.getElementById('image-input').files[0]
     const fileForm = new FormData()
     fileForm.append('myfile', file)
-    await fetch('http://localhost:8000/sendimage', { method: 'POST', headers: { 'Cookie': 'csrftoken=3VP14bO9yh1gzNq7wpF8CJpiwbyXjSi6favlJb0yTzuxbhQxkA50zIrWZJ5wFH4W; sessionid=6bdwmrmrurbqivhafujmimcooli6pv54', 'X-CSRFToken': '3VP14bO9yh1gzNq7wpF8CJpiwbyXjSi6favlJb0yTzuxbhQxkA50zIrWZJ5wFH4W', 'X-Requested-With': 'XMLHttpRequest' }, body: fileForm }).then(res => { return res.blob() }).then(blob => {
+    await fetch('/sendimage', { method: 'POST',headers: {'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value}, body: fileForm }).then(res => { return res.blob() }).then(blob => {
         if (blob.type.includes('image')) {
             var img = URL.createObjectURL(blob)
             const midcon = document.getElementById('mid-container')

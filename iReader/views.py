@@ -6,7 +6,7 @@ import time
 import pathlib
 import os
 import base64
-from .modules.ten.readimage import getNewImage
+from .modules.ten.readimage import readImage
 from subprocess import Popen
 
 
@@ -20,9 +20,9 @@ def sendImage(request):
         with default_storage.open('tmp/'+filename, 'wb+') as destination:
             for chunk in file_obj.chunks():
                 destination.write(chunk)
-        getNewImage(os.path.join(pathlib.Path(__file__).parent.parent.absolute(),'tmp',filename))
+        readImage(os.path.join(pathlib.Path(__file__).parent.parent.absolute(),'tmp',filename))
         with open('tmp/'+filename,"rb") as f:
-            filedata =f.read()
+            filedata = f.read()
         p = Popen("rm %s" % os.path.join(pathlib.Path(__file__).parent.parent.absolute(),'tmp',filename),shell=True)
         response = HttpResponse(filedata,content_type="image/png")
         return response
