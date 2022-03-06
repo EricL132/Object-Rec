@@ -20,8 +20,8 @@ h1{
 }
 
 #mid-container{
-    width: 600px;
-    height: 500px;
+    min-width: 600px;
+    min-height: 500px;
     border-style: dotted;
     display: flex;
     flex-direction: column;
@@ -31,10 +31,25 @@ h1{
     cursor: pointer;
     user-select: none;
     color: white;
-    overflow: hidden;
 
 }
 
+
+.output-container{
+    width: 1300px;
+    height: 700px;
+    cursor: auto;
+}
+
+#output-image{
+    width: 100%;
+}
+
+#outputImage{
+    display: flex;
+    width: 1300px;
+    height: 700px;
+}
 #add-image{
     width: 70px;
     height: 70px;
@@ -56,14 +71,6 @@ label{
     font-size: 3rem;
 }
 
-#outputImage{
-    overflow: hidden;
-    width: 1300px;
-    height: 700px;
-    background-position: center;
-    background-size: contain;
-    background-attachment: fixed;
-}
 
 
 #button-tools-container{
@@ -88,4 +95,12 @@ label{
 
 .bottom-buttons:active{
     transform: translateY(-.5px);
+}
+
+
+@media (max-width:800px) {
+    #mid-container{
+        width: 80%;
+    
+    }
 }
