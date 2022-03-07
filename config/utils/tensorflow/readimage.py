@@ -10,8 +10,8 @@ import time
 # Loading csv with labels of classes
 labels = pd.read_csv(os.path.join(pathlib.Path(__file__).parent,'labels.csv'), sep=';', index_col='ID')
 labels = labels['OBJECT (2017 REL.)']
-# detector = hub.load("https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1")
-detector = hub.KerasLayer(os.path.join(pathlib.Path(__file__).parent.absolute(),"hub"))
+detector = hub.load("https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1")
+# detector = hub.KerasLayer(os.path.join(pathlib.Path(__file__).parent.absolute(),"hub"))
 
 
 
