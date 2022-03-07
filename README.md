@@ -2,13 +2,17 @@
 Built with Django for backend and React for frontend, Image link/files are sent to backend to read and returns a image with boxs around objects found
 
 # Live Demo 
-
+https://ericliao.me/project/image-scanner
 
 
 # Run Locally
 Run the following command in terminal to clone repo
 ```
 git clone https://github.com/EricL132/Image-Scanner.git  
+```
+cd into folder
+```
+cd Image-Scanner
 ```
 Create virtual environment for python so packages aren't saved globally  
 Activate virtual environment

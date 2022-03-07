@@ -1,6 +1,21 @@
+@-webkit-keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
-
-body{
+body {
     margin: 0;
     display: flex;
     align-items: center;
@@ -10,16 +25,16 @@ body{
     background-color: #121212;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-h1{
+h1 {
     color: white;
     margin-top: 3rem;
 }
 
-#mid-container{
+#mid-container {
     min-width: 600px;
     min-height: 500px;
     border-style: dotted;
@@ -31,60 +46,67 @@ h1{
     cursor: pointer;
     user-select: none;
     color: white;
-
 }
 
-
-.output-container{
+.output-container {
     width: 1300px;
     height: 700px;
     cursor: auto;
 }
 
-#output-image{
+#output-image {
     width: 100%;
 }
 
-#outputImage{
+#outputImage {
     display: flex;
     width: 1300px;
     height: 700px;
 }
-#add-image{
+#add-image {
     width: 70px;
     height: 70px;
     cursor: pointer;
 }
 
-label{
+label {
     cursor: pointer;
     color: white;
-
 }
 
-#image-input{
+#image-input {
     display: none;
-    
 }
 
-#plus-icon{
+#plus-icon {
     font-size: 3rem;
 }
 
-
-
-#button-tools-container{
+#button-tools-container {
     width: 400px;
-
-    display: none;
+    display: flex;
+    visibility: hidden;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 2rem;
 }
 
 
-.bottom-buttons{
-    background-color:white;
+.loading-spin {
+    position: absolute;
+    top: 45%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+    border-top-color: white;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+    visibility:hidden;
+}
+
+.bottom-buttons {
+    background-color: white;
     width: 100px;
     height: 40px;
     border-radius: 5px;
@@ -93,14 +115,12 @@ label{
     border: none;
 }
 
-.bottom-buttons:active{
-    transform: translateY(-.5px);
+.bottom-buttons:active {
+    transform: translateY(-0.5px);
 }
 
-
-@media (max-width:800px) {
-    #mid-container{
+@media (max-width: 800px) {
+    #mid-container {
         width: 80%;
-    
     }
 }
