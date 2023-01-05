@@ -1,10 +1,6 @@
 # Object Recognition 
 Built with Django for backend and React for frontend, Image link/files are sent to backend to read and returns a image with boxs around objects found
 
-# Live Demo 
-https://ericliao.me/project/image-scanner
-
-
 # Run Locally
 Run the following command in terminal to clone repo
 ```
